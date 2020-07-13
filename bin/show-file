@@ -1,0 +1,20 @@
+#!/bin/bash
+# [macOS] Show/Hide the hidden files in Finder.
+# add this function to '~/.bash_profile' and reopen terminal.
+# Usage: show-file                          -> show
+#        show-file 0 / off / hide / false   -> hide
+
+opt=$(echo $1 | tr '[:upper:]' '[:lower:]')    # transfer into lowercase
+
+# Hide Files
+if [ "$opt" = "off" ] || [ "$opt" = "0" ] || [ "$opt" = "false" ] || [ "$opt" = "hide" ] ; then
+    echo "Hide all the hidden files in Finder."
+    defaults write com.apple.finder AppleShowAllFiles FALSE
+    killall Finder
+else
+    # Show all the Files
+    echo "Show all the hidden files in Finder."
+    defaults write com.apple.finder AppleShowAllFiles TRUE
+    killall Finder
+    echo "Use 'show-file off' to hide the hidden files in Finder."
+fi

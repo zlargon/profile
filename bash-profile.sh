@@ -17,6 +17,7 @@ source $HOME/profile/android.sh
 source $HOME/profile/jupyter-lab.sh
 source $HOME/profile/sqlite.sh
 source $HOME/profile/postgres.sh
+source $HOME/profile/terraform.sh
 
 # alias
 alias git-diff="git diff --no-index"
